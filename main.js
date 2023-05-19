@@ -47,14 +47,14 @@ function addStar() {
 
 Array(200).fill().forEach(addStar)
 
-const spaceTexture = new THREE.TextureLoader().load('public/space-2560x1440-l122pd4lxyo3fug5.jpeg')
+const spaceTexture = new THREE.TextureLoader().load('https://ucarecdn.com/6cd278bf-9e61-4224-85b2-65cda4cca5f7/')
 scene.background = spaceTexture
 
 scene.add(pointLight)
 
 // object that renders a new object with a texture, instantiate a object, the instantiate a texture, Instantiate a new object with ththe object and the mesh put together
 
-const jeffTexture = new THREE.TextureLoader().load('public/bRlgS3b.png')
+const jeffTexture = new THREE.TextureLoader().load('https://i.imgur.com/bRlgS3b.png')
 
 const jeff = new THREE.Mesh(
   new THREE.BoxGeometry(3,3,3),
@@ -64,8 +64,8 @@ const jeff = new THREE.Mesh(
 //  render
 scene.add(jeff)
 
-const moonTexture = new THREE.TextureLoader().load('public/Dh_moon_texture.webp')
-const normalTexture = new THREE.TextureLoader().load('public/download (1).jpeg')
+const moonTexture = new THREE.TextureLoader().load('https://ucarecdn.com/45c859bb-1c98-4a52-8c02-1f7776e850eb/')
+const normalTexture = new THREE.TextureLoader().load('https://ucarecdn.com/2a41635c-c67d-4870-bd58-2c80d05f7661/')
 
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
