@@ -29,8 +29,8 @@ const ambientLight = new THREE.AmbientLight(0xffffff)
 scene.add(pointLight, ambientLight)
 
 const lightHelper = new THREE.PointLightHelper(pointLight)
-const gridHelper = new THREE.GridHelper(200, 50)
-scene.add(lightHelper, gridHelper)
+// const gridHelper = new THREE.GridHelper(200, 50)
+scene.add(lightHelper) //gridHelper)
 
 const controls = new OrbitControls(camera, renderer.domElement)
 
@@ -64,6 +64,37 @@ const jeff = new THREE.Mesh(
 //  render
 scene.add(jeff)
 
+const moonTexture = new THREE.TextureLoader().load('public/Dh_moon_texture.webp')
+const normalTexture = new THREE.TextureLoader().load('public/download (1).jpeg')
+
+const moon = new THREE.Mesh(
+  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.MeshStandardMaterial( {
+    map: moonTexture,
+      normalMap: normalTexture
+  })
+)
+
+scene.add(moon)
+
+moon.position.z = 15
+moon.position.setX(-10)
+
+function moveCamera() {
+  const t = document.body.getBoundingClientRect().top
+  moon.rotation.x += 0.05
+  moon.rotation.y += 0.075
+  moon.rotation.z += 0.05
+
+  jeff.rotation.y += 0.01
+  jeff.rotation.z += 0.01
+
+  camera.position.z = t * - 0.01
+  camera.position.x = t * - 0.0002
+  camera.rotation.y = t * - 0.0002
+}
+
+document.body.onscroll = moveCamera
 
 function animate(){
   requestAnimationFrame(animate)
