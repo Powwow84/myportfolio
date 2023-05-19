@@ -47,7 +47,22 @@ function addStar() {
 
 Array(200).fill().forEach(addStar)
 
+const spaceTexture = new THREE.TextureLoader().load('public/space-2560x1440-l122pd4lxyo3fug5.jpeg')
+scene.background = spaceTexture
+
 scene.add(pointLight)
+
+// object that renders a new object with a texture, instantiate a object, the instantiate a texture, Instantiate a new object with ththe object and the mesh put together
+
+const jeffTexture = new THREE.TextureLoader().load('public/bRlgS3b.png')
+
+const jeff = new THREE.Mesh(
+  new THREE.BoxGeometry(3,3,3),
+  new THREE.MeshBasicMaterial({ map : jeffTexture})
+)
+
+//  render
+scene.add(jeff)
 
 
 function animate(){
